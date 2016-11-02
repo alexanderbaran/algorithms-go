@@ -1,4 +1,4 @@
-package main
+package bst
 
 /* Binary Search Trees (BST) are actual trees compared to the heap data structure so they
 need pointers. Allows for fast access O(logn), search O(logn), insertion O(logn),
@@ -14,3 +14,11 @@ type Node struct {
 	left  *Node
 	right *Node
 }
+
+// def search_recursively(key, node):
+//     if node is None or node.key == key:
+//         return node
+//     else if key < node.key:
+//         return search_recursively(key, node.left)
+//     else:  # key > node.key
+//         return search_recursively(key, node.right)

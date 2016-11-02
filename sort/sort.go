@@ -1,7 +1,9 @@
-package main
+package sort
+
+import "algorithms-go/heap"
 
 // O(n^2)
-func insertionSort(a []int) {
+func InsertionSort(a []int) {
 	for i := 1; i < len(a); i++ {
 		j := i
 		for j > 0 && a[j-1] > a[j] {
@@ -12,7 +14,7 @@ func insertionSort(a []int) {
 }
 
 // O(nlogn)
-func mergeSort(a []int) []int {
+func MergeSort(a []int) []int {
 	// fmt.Println(a)
 	if len(a) <= 1 {
 		return a
@@ -28,8 +30,8 @@ func mergeSort(a []int) []int {
 	// }
 	// left = mergeSort(left)
 	// right = mergeSort(right)
-	left := mergeSort(a[0 : len(a)/2])
-	right := mergeSort(a[len(a)/2 : len(a)])
+	left := MergeSort(a[0 : len(a)/2])
+	right := MergeSort(a[len(a)/2 : len(a)])
 	return merge(left, right)
 }
 
@@ -78,7 +80,7 @@ func merge(l []int, r []int) []int {
 }
 
 // O(nlogn)
-func heapSort(a []int) []int {
+func HeapSort(a []int) []int {
 	// 1. buildMaxHeap from unordered array.
 	// 2. Find maxElement a[0]
 	// 3. Swap elements a[len(a)-1] with a[0]. Now maxElement is at the end of array.
@@ -87,7 +89,7 @@ func heapSort(a []int) []int {
 	// 5. New root may violate max heap property, but children are max heaps.
 	//    Run maxHeapify(a, i)
 	// 6. Back to step 2 and repeat.
-	buildMaxHeap(a)
+	heap.BuildMaxHeap(a)
 	heapSize := len(a)
 	// result := []int{}
 	result := make([]int, heapSize)
@@ -96,7 +98,7 @@ func heapSort(a []int) []int {
 		result[i] = a[0]
 		a[0], a[len(a)-1] = a[len(a)-1], a[0]
 		a = a[0 : len(a)-1]
-		maxHeapify(a, 0)
+		heap.MaxHeapify(a, 0)
 	}
 	return result
 }

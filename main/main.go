@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"math/rand"
 	"time"
 )
 
@@ -12,26 +11,23 @@ func main() {
 	// fmt.Println(a[0 : len(a)/2])
 	// fmt.Println(a[len(a)/2 : len(a)])
 
-	n := int(1e7)
-	a := make([]int, n)
-	for i := 0; i < n; i++ {
-		a[i] = rand.Intn(n)
-	}
-	// insertionSort(a)
+	// n := int(1e4)
+	// a := make([]int, n)
+	// for i := 0; i < n; i++ {
+	// 	a[i] = rand.Intn(n)
+	// }
+	// sort.InsertionSort(a)
 	// fmt.Println(a)
 
-	// a = mergeSort(a)
+	// a = sort.MergeSort(a)
 	// fmt.Println(a)
-
-	// left := []int{0, 3, 6, 8, 9, 10}
-	// right := []int{1, 2, 4, 5, 7, 12, 15, 19}
-	// fmt.Println(merge(left, right))
 
 	// a := []int{1, 2, 7, 3, 10, 3, 4, 5, 14, 0}
-	// buildMaxHeap(a)
-	a = heapSort(a)
+	// heap.BuildMaxHeap(a)
+	// a = sort.HeapSort(a)
 	// fmt.Println(a)
 
+	// root := bst.Node{}
 }
 
 func timeTrack(start time.Time) {
