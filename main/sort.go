@@ -77,6 +77,7 @@ func merge(l []int, r []int) []int {
 	return a
 }
 
+// O(nlogn)
 func heapSort(a []int) []int {
 	// 1. buildMaxHeap from unordered array.
 	// 2. Find maxElement a[0]
