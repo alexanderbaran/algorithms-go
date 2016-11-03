@@ -95,10 +95,10 @@ func HeapSort(a []int) []int {
 	result := make([]int, heapSize)
 	for i := heapSize - 1; i >= 0; i-- {
 		// result = append([]int{a[0]}, result...) // Prepend.
-		result[i] = a[0]
-		a[0], a[len(a)-1] = a[len(a)-1], a[0]
-		a = a[0 : len(a)-1]
-		heap.MaxHeapify(a, 0)
+		result[i] = heap.ExtractMax(&a)
+		// a[0], a[len(a)-1] = a[len(a)-1], a[0]
+		// a = a[0 : len(a)-1]
+		// heap.MaxHeapify(a, 0)
 	}
 	return result
 }

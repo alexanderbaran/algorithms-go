@@ -1,7 +1,6 @@
 package heap
 
 // https://en.wikipedia.org/wiki/Binary_heap
-// http://www.cse.hut.fi/en/research/SVG/TRAKLA2/tutorials/heap_tutorial/index.html
 
 /* Heap does not need pointers. Can be represented by an array. Good for extracting min
 and max values from a min-heap and max-heap data structure.
@@ -33,4 +32,13 @@ func BuildMaxHeap(a []int) {
 	for i := (heapSize / 2) - 1; i >= 0; i-- {
 		MaxHeapify(a, i)
 	}
+}
+
+func ExtractMax(p *[]int) int {
+	a := *p
+	max := a[0]
+	a[0], a[len(a)-1] = a[len(a)-1], a[0]
+	*p = a[0 : len(a)-1]
+	MaxHeapify(*p, 0)
+	return max
 }
