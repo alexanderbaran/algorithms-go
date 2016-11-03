@@ -15,10 +15,12 @@ type Node struct {
 	right *Node
 }
 
-// def search_recursively(key, node):
-//     if node is None or node.key == key:
-//         return node
-//     else if key < node.key:
-//         return search_recursively(key, node.left)
-//     else:  # key > node.key
-//         return search_recursively(key, node.right)
+func Search(key int, node *Node) *Node {
+	if node == nil || node.key == key {
+		return node
+	} else if key < node.key {
+		return Search(key, node.left)
+	} else {
+		return Search(key, node.right)
+	}
+}
