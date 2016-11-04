@@ -103,6 +103,11 @@ func HeapSort(a []int) []int {
 	return result
 }
 
+func BSTSort(a []int) []int {
+	result := make([]int, len(a))
+	return result
+}
+
 // func duplicate(a []int) []int {
 // 	tmp := make([]int, len(a))
 // 	copy(tmp, a)

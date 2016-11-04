@@ -1,5 +1,7 @@
 package bst
 
+import "fmt"
+
 /* Binary Search Trees (BST) are actual trees compared to the heap data structure so they
 need pointers. Allows for fast access O(logn), search O(logn), insertion O(logn),
 deletion O(logn).
@@ -90,4 +92,28 @@ func find(n *Node, key int) *Node {
 		return find(n.Left, key)
 	}
 	return find(n.Right, key)
+}
+
+func InOrder(n *Node) {
+	if n != nil {
+		InOrder(n.Left)
+		fmt.Println(n.Key)
+		InOrder(n.Right)
+	}
+}
+
+func PreOrder(n *Node) {
+	if n != nil {
+		fmt.Println(n.Key)
+		PreOrder(n.Left)
+		PreOrder(n.Right)
+	}
+}
+
+func PostOrder(n *Node) {
+	if n != nil {
+		PostOrder(n.Left)
+		PostOrder(n.Right)
+		fmt.Println(n.Key)
+	}
 }
