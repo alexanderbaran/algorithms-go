@@ -6,11 +6,6 @@ import "fmt"
 need pointers. Allows for fast access O(logn), search O(logn), insertion O(logn),
 deletion O(logn).
 
-The tree satisfies the binary search tree property, which states that the key in each
-node must be greater than all keys stored in the left sub-tree, and less than all keys
-in the right sub-tree.
-
-
 1. A tree consists of nodes that store unique values.
 2. Each node has zero, one, or two child nodes.
 3. One of the nodes is designated as the root node that is at the top of the tree
@@ -21,14 +16,12 @@ in the right sub-tree.
 6. Each subtree to the left of a node only contains values that are smaller than the
    node’s value, and each subtree to the right of a node contains only larger values.
 
-To implement:
-
-	- Add and remove
-	- Searching
-	- Traversals
-		- Pre-Order
-		- In-Order
-		- Post-Order */
+BST can be used to sort an unsorted array as we can do with a heap data structure.
+In practice, the added overhead in time and space for a tree-based sort (particularly
+for node allocation) make it inferior to other asymptotically optimal sorts such as
+heapsort for static list sorting. On the other hand, it is one of the most efficient
+methods of incremental sorting, adding items to a list over time while keeping the
+list sorted at all times. */
 
 type Tree struct {
 	Root *Node
