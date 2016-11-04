@@ -33,8 +33,12 @@ func New() *Tree {
 }
 
 // O(log n) space in the average case and O(n) in the worst case.
-func BuildFromSlice(a []int) *Tree {
-	return nil
+func FromSlice(a []int) *Tree {
+	t := &Tree{}
+	for i := 0; i < len(a); i++ {
+		t.Add(a[i])
+	}
+	return t
 }
 
 type Node struct {
@@ -64,7 +68,8 @@ func (root *Node) Add(n *Node) bool {
 		} else {
 			return root.Left.Add(n)
 		}
-	} else if n.Key > root.Key {
+	} else if n.Key >= root.Key { // Need tree to take duplicates for sort.
+		// } else if n.Key > root.Key {
 		if root.Right == nil {
 			root.Right = n
 			return true
@@ -97,6 +102,17 @@ func InOrder(n *Node) {
 		InOrder(n.Left)
 		fmt.Println(n.Key)
 		InOrder(n.Right)
+	}
+}
+
+func InOrderAdd(a *[]int, n *Node, i *int) {
+	if n != nil {
+		InOrderAdd(a, n.Left, i)
+		// *a = append(*a, n.Key)
+		s := *a
+		s[*i] = n.Key
+		*i++
+		InOrderAdd(a, n.Right, i)
 	}
 }
 

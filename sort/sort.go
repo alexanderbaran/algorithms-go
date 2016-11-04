@@ -1,6 +1,9 @@
 package sort
 
-import "algorithms-go/heap"
+import (
+	"algorithms-go/bst"
+	"algorithms-go/heap"
+)
 
 // O(n^2)
 func InsertionSort(a []int) {
@@ -103,9 +106,13 @@ func HeapSort(a []int) []int {
 	return result
 }
 
+// Best O(nlogn), average O(nlogn), worst O(n^2).
 func BSTSort(a []int) []int {
-	result := make([]int, len(a))
-	return result
+	t := bst.FromSlice(a)
+	s := make([]int, len(a))
+	i := 0
+	bst.InOrderAdd(&s, t.Root, &i)
+	return s
 }
 
 // func duplicate(a []int) []int {

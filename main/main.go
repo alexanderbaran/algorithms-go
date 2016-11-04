@@ -1,14 +1,13 @@
 package main
 
 import (
-	"algorithms-go/bst"
 	"fmt"
 	"time"
 )
 
 func main() {
 	// defer timeTrack(time.Now())
-	// a := []int{3, 4, 2, 1, 0, 9, 7, 8, 5, 6}
+	// a := []int{6, 4, 2, 1, 0, 9, 7, 8, 5, 3}
 
 	// n := int(1e6)
 	// a := make([]int, n)
@@ -24,18 +23,19 @@ func main() {
 
 	// a = sort.HeapSort(a)
 
-	// fmt.Println(a)
-
-	t := bst.New()
-	t.Add(4)
-	t.Add(6)
-	t.Add(7)
-	t.Add(5)
-	t.Add(2)
-	t.Add(3)
-	t.Add(1)
+	// t := bst.New()
+	// t.Add(4)
+	// t.Add(6)
+	// t.Add(7)
+	// t.Add(5)
+	// t.Add(2)
+	// t.Add(3)
+	// t.Add(1)
 	// fmt.Println(t.Find(6))
 	// bst.InOrder(t.Root)
+
+	// a = sort.BSTSort(a)
+	// fmt.Println(a)
 }
 
 func timeTrack(start time.Time) {
