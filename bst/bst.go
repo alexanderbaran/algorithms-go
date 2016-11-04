@@ -32,6 +32,11 @@ func New() *Tree {
 	return &Tree{}
 }
 
+// O(log n) space in the average case and O(n) in the worst case.
+func BuildFromSlice(a []int) *Tree {
+	return nil
+}
+
 type Node struct {
 	Key int
 	// size  int
