@@ -33,9 +33,12 @@ func main() {
 	// t.Add(1)
 	// fmt.Println(t.Find(6))
 	// bst.InOrder(t.Root)
+	// fmt.Println(t.Minimum(t.Root))
+	// fmt.Println(t.Maximum(t.Root))
 
 	// a = sort.BSTSort(a)
-	// fmt.Println(a)
+
+	fmt.Println(t.IsBST())
 }
 
 func timeTrack(start time.Time) {

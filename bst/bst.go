@@ -42,10 +42,10 @@ func FromSlice(a []int) *Tree {
 }
 
 type Node struct {
-	Key int
-	// size  int
-	Left  *Node
-	Right *Node
+	Key    int
+	Left   *Node
+	Right  *Node
+	Parent *Node
 }
 
 func (t *Tree) Add(key int) {
@@ -68,8 +68,8 @@ func (root *Node) Add(n *Node) bool {
 		} else {
 			return root.Left.Add(n)
 		}
-	} else if n.Key >= root.Key { // Need tree to take duplicates for sort.
-		// } else if n.Key > root.Key {
+		// } else if n.Key >= root.Key { // Need tree to take duplicates for sort.
+	} else if n.Key > root.Key {
 		if root.Right == nil {
 			root.Right = n
 			return true
@@ -95,6 +95,20 @@ func find(n *Node, key int) *Node {
 		return find(n.Left, key)
 	}
 	return find(n.Right, key)
+}
+
+func minimum(n *Node) *Node {
+	for n.Left != nil {
+		n = n.Left
+	}
+	return n
+}
+
+func maximum(n *Node) *Node {
+	for n.Right != nil {
+		n = n.Right
+	}
+	return n
 }
 
 func InOrder(n *Node) {
@@ -130,4 +144,21 @@ func PostOrder(n *Node) {
 		PostOrder(n.Right)
 		fmt.Println(n.Key)
 	}
+}
+
+func (t *Tree) IsBST() bool {
+	if t.Root == nil {
+		return true
+	}
+	return isBST(t.Root, minimum(t.Root).Key, maximum(t.Root).Key)
+}
+
+func isBST(n *Node, min, max int) bool {
+	if n == nil {
+		return true
+	}
+	if n.Key < min || n.Key > max {
+		return false
+	}
+	return isBST(n.Left, min, n.Key) && isBST(n.Right, n.Key, max)
 }

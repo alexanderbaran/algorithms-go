@@ -34,6 +34,7 @@ func BuildMaxHeap(a []int) {
 	}
 }
 
+// O(logn)
 func ExtractMax(p *[]int) int {
 	a := *p
 	max := a[0]
@@ -41,4 +42,9 @@ func ExtractMax(p *[]int) int {
 	*p = a[0 : len(a)-1]
 	MaxHeapify(*p, 0)
 	return max
+}
+
+// O(h) = O(logn)
+func Insert(a []int, i int) {
+
 }
