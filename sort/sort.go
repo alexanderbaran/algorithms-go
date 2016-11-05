@@ -115,6 +115,31 @@ func BSTSort(a []int) []int {
 	return s
 }
 
+// O(n+k), k = max
+func CountingSort(a []int, max int) {
+	// func CountingSort(a []int, max int) []int {
+	c := make([]int, max)
+	for _, v := range a {
+		c[v]++
+	}
+	// s := make([]int, len(a))
+	i := 0
+	for j, v := range c {
+		if v != 0 {
+			for k := 1; k <= v; k++ {
+				a[i] = j
+				i++
+			}
+		}
+	}
+	// return s
+}
+
+// O(nk)
+func RadixSort(a []int) {
+
+}
+
 // func duplicate(a []int) []int {
 // 	tmp := make([]int, len(a))
 // 	copy(tmp, a)
