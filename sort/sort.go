@@ -3,8 +3,7 @@ package sort
 import (
 	"algorithms-go/bst"
 	"algorithms-go/heap"
-
-	"github.com/davecgh/go-spew/spew"
+	"math"
 )
 
 // O(n^2)
@@ -137,12 +136,32 @@ func CountingSort(a []int, max int) {
 	// return s
 }
 
-// O(nk)
-func RadixSort(a []int) []int {
-	s := []int{}
-	bin := make([][]int, 10)
-	spew.Dump(bin)
-	return s
+func RadixSort(a []int, max int) {
+	var bin [][]int
+	for k := 1; k <= digitLength(max); k++ {
+		bin = make([][]int, 10)
+		for _, v := range a {
+			i := nthDigit(v, k)
+			bin[i] = append(bin[i], v)
+		}
+		i := 0
+		for _, s := range bin {
+			if s != nil {
+				for _, v := range s {
+					a[i] = v
+					i++
+				}
+			}
+		}
+	}
+}
+
+func digitLength(x int) int {
+	return int(math.Log10(float64(x)) + 1)
+}
+
+func nthDigit(number, n int) int {
+	return (number / int(math.Pow(10.0, float64(n-1)))) % 10
 }
 
 func QuickSort(a []int) []int {

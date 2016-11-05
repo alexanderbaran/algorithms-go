@@ -1,21 +1,19 @@
 package main
 
 import (
-	"algorithms-go/sort"
 	"fmt"
-	"math/rand"
 	"time"
 )
 
 func main() {
-	defer timeTrack(time.Now())
+	// defer timeTrack(time.Now())
 	// a := []int{6, 4, 2, 1, 0, 9, 7, 8, 5, 3}
 
-	n := int(1e2)
-	a := make([]int, n)
-	for i := 0; i < n; i++ {
-		a[i] = rand.Intn(n)
-	}
+	// n := int(1e3)
+	// a := make([]int, n)
+	// for i := 0; i < n; i++ {
+	// 	a[i] = rand.Intn(n)
+	// }
 
 	// sort.Ints(a)
 
@@ -44,8 +42,8 @@ func main() {
 
 	// sort.CountingSort(a, n)
 
-	a = sort.RadixSort(a)
-	fmt.Println(a)
+	// sort.RadixSort(a, n)
+	// fmt.Println(a)
 }
 
 func timeTrack(start time.Time) {
