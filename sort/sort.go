@@ -118,12 +118,10 @@ func BSTSort(a []int) []int {
 
 // O(n+k), k = max
 func CountingSort(a []int, max int) {
-	// func CountingSort(a []int, max int) []int {
 	c := make([]int, max)
 	for _, v := range a {
 		c[v]++
 	}
-	// s := make([]int, len(a))
 	i := 0
 	for j, v := range c {
 		if v != 0 {
@@ -133,7 +131,6 @@ func CountingSort(a []int, max int) {
 			}
 		}
 	}
-	// return s
 }
 
 func RadixSort(a []int, max int) {
