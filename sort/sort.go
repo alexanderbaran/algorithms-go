@@ -3,6 +3,8 @@ package sort
 import (
 	"algorithms-go/bst"
 	"algorithms-go/heap"
+
+	"github.com/davecgh/go-spew/spew"
 )
 
 // O(n^2)
@@ -136,8 +138,15 @@ func CountingSort(a []int, max int) {
 }
 
 // O(nk)
-func RadixSort(a []int) {
+func RadixSort(a []int) []int {
+	s := []int{}
+	bin := make([][]int, 10)
+	spew.Dump(bin)
+	return s
+}
 
+func QuickSort(a []int) []int {
+	return nil
 }
 
 // func duplicate(a []int) []int {

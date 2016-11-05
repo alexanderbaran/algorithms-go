@@ -11,7 +11,7 @@ func main() {
 	defer timeTrack(time.Now())
 	// a := []int{6, 4, 2, 1, 0, 9, 7, 8, 5, 3}
 
-	n := int(1e6)
+	n := int(1e2)
 	a := make([]int, n)
 	for i := 0; i < n; i++ {
 		a[i] = rand.Intn(n)
@@ -42,8 +42,10 @@ func main() {
 
 	// fmt.Println(t.IsBST())
 
-	sort.CountingSort(a, n)
-	// fmt.Println(a)
+	// sort.CountingSort(a, n)
+
+	a = sort.RadixSort(a)
+	fmt.Println(a)
 }
 
 func timeTrack(start time.Time) {
